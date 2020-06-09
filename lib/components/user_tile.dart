@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/models/user.dart';
+import 'package:flutter_crud/routes/app_routes.dart';
 
 class UserTile extends StatelessWidget {
   final User user;
@@ -21,9 +22,20 @@ class UserTile extends StatelessWidget {
         child: Row(
           children: <Widget>[
             IconButton(
-                icon: Icon(Icons.edit), onPressed: () {}, color: Colors.orange),
+              icon: Icon(Icons.edit),
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  AppRoutes.USER_FORM,
+                  arguments: user,
+                );
+              },
+              color: Colors.orange,
+            ),
             IconButton(
-                icon: Icon(Icons.delete), onPressed: () {}, color: Colors.red),
+              icon: Icon(Icons.delete),
+              onPressed: () {},
+              color: Colors.red,
+            ),
           ],
         ),
       ),
